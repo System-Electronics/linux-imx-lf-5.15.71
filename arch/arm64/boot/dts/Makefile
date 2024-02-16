@@ -27,6 +27,7 @@ subdir-y += rockchip
 subdir-y += socionext
 subdir-y += sprd
 subdir-y += synaptics
+subdir-y += system-electronics
 subdir-y += ti
 subdir-y += toshiba
 subdir-y += xilinx
