@@ -108,6 +108,22 @@
 	status = "okay";
 };
 
+&ecspi1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	fsl,spi-num-chipselects = <1>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
+	cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+	status = "okay";
+
+	spidev1: spi1@0 {
+		reg = <0>;
+		compatible = "rohm,dh2228fv";
+		spi-max-frequency = <500000>;
+	};
+};
+
 &ecspi2 {
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -117,12 +133,30 @@
 	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
 	status = "okay";
 
-	spidev1: spi@0 {
+	spidev2: spi2@0 {
 		reg = <0>;
 		compatible = "rohm,dh2228fv";
 		spi-max-frequency = <500000>;
 	};
 };
+
+/*
+*&ecspi2 {
+*	#address-cells = <1>;
+*	#size-cells = <0>;
+*	fsl,spi-num-chipselects = <1>;
+*	pinctrl-names = "default";
+*	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+*	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
+*	status = "okay";
+*
+*	spidev1: spi@0 {
+*		reg = <0>;
+*		compatible = "rohm,dh2228fv";
+*		spi-max-frequency = <500000>;
+*	};
+*};
+*/
 
 &eqos {
 	pinctrl-names = "default";
@@ -583,21 +617,53 @@
 			MX8MP_IOMUXC_SD1_DATA7__GPIO2_IO09		0x1c4
 		>;
 	};
+	
+	pinctrl_ecspi1: ecspi1grp {
+		fsl,pins = <
+			MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK    0x82
+			MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI    0x82
+			MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO    0x82
+		>;
+	};
+
+	pinctrl_ecspi1_cs: ecspi1cs {
+		fsl,pins = <
+			MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09      0x40000
+		>;
+	};
 
 	pinctrl_ecspi2: ecspi2grp {
 		fsl,pins = <
-			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK		0x82
-			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI		0x82
-			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO		0x82
+			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK    0x82
+			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI    0x82
+			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO    0x82
 		>;
 	};
 
 	pinctrl_ecspi2_cs: ecspi2cs {
 		fsl,pins = <
-			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13		0x40000
+			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13      0x40000
 		>;
 	};
+	
+	/*
+	*pinctrl_ecspi2: ecspi2grp {
+	*	fsl,pins = <
+	*		MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK		0x82
+	*		MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI		0x82
+	*		MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO		0x82
+	*	>;
+	*};
+	*/
 
+	/*
+	*pinctrl_ecspi2_cs: ecspi2cs {
+	*	fsl,pins = <
+	*		MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13		0x40000
+	*	>;
+	*};
+	*/
+	
 	pinctrl_eqos: eqosgrp {
 		fsl,pins = <
 			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x142
