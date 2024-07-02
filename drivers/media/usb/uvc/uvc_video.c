@@ -231,6 +231,13 @@ static void uvc_fixup_video_ctrl(struct uvc_streaming *stream,
 
 		ctrl->dwMaxPayloadTransferSize = bandwidth;
 	}
+	if (uvc_bandwidth_cap_param &&
+	    ctrl->dwMaxPayloadTransferSize > uvc_bandwidth_cap_param) {
+		uvc_dbg(stream->dev, VIDEO,
+			"Bandwidth capped from %u to %u B/frame.\n",
+			ctrl->dwMaxPayloadTransferSize, uvc_bandwidth_cap_param);
+		ctrl->dwMaxPayloadTransferSize = uvc_bandwidth_cap_param;
+	}
 }
 
 static size_t uvc_video_ctrl_size(struct uvc_streaming *stream)
