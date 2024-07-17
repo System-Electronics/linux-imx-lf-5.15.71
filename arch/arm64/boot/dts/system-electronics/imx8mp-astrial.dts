@@ -231,6 +231,8 @@
 		pinctrl-0 = <&pinctrl_pmic>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+		/* needed for i2c2 to work */
+		nxp,i2c-lt-enable;
 
 		regulators {
 			buck1: BUCK1 {
