@@ -774,6 +774,18 @@
 		>;
 	};
 
+	pinctrl_pwm1: pwm1grp {
+		fsl,pins = <
+			MX8MP_IOMUXC_SPDIF_EXT_CLK__PWM1_OUT	0x116
+		>;
+	};
+
+	pinctrl_pwm4: pwm4grp {
+		fsl,pins = <
+			MX8MP_IOMUXC_SAI3_MCLK__PWM4_OUT		0x116
+		>;
+	};
+
 	pinctrl_usb0: usb0-extcongrp {
 		fsl,pins = <
 			MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10	0x19
@@ -977,4 +989,15 @@
 	cap_device {
 		status = "okay";
 	};
+
+&pwm1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm1>;
+	status = "okay";
+};
+
+&pwm4 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm4>;
+	status = "okay";
 };
