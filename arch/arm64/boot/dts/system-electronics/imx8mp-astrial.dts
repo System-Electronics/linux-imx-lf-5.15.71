@@ -331,7 +331,7 @@
 	imx219_1: imx219_mipi@10 {
 		compatible = "sony,imx219";
 		reg = <0x10>;
-		pinctrl-0 = <&pinctrl_csi0_pwn>, <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
+		pinctrl-0 = <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
 		clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
 		clock-names = "xclk";
 		assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
@@ -385,7 +385,7 @@
 	imx219_0: imx219_mipi@10 {
 		compatible = "sony,imx219";
 		reg = <0x10>;
-		pinctrl-0 = <&pinctrl_csi0_pwn>, <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
+		pinctrl-0 = <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
 		clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
 		clock-names = "xclk";
 		assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
