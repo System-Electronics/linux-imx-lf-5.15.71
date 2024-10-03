@@ -754,6 +754,7 @@ extern unsigned int uvc_no_drop_param;
 extern unsigned int uvc_dbg_param;
 extern unsigned int uvc_timeout_param;
 extern unsigned int uvc_hw_timestamps_param;
+extern unsigned int uvc_bandwidth_cap_param;
 
 #define uvc_dbg(_dev, flag, fmt, ...)					\
 do {									\
