@@ -592,7 +592,7 @@
 	bus-width = <4>;
 	broken-cd;
 	no-1-8-v;
-	status = "okay";
+	status = "disabled";
 };
 
 &usdhc2 {
