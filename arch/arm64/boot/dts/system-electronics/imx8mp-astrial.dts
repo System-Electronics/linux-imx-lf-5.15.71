@@ -133,7 +133,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
 	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-	status = "okay";
+	status = "disabled";
 
 	spidev2: spi2@0 {
 		reg = <0>;
