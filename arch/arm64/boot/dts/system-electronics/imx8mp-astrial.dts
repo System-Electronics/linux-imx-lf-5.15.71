@@ -527,11 +527,11 @@
 	status = "okay";
 };
 
-&uart3 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_uart3>;
-	status = "okay";
-};
+//&uart3 {
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_uart3>;
+//	status = "okay";
+//};
 
 &usb3_phy0 {
 	fsl,phy-tx-vref-tune = <0xe>;
@@ -783,12 +783,12 @@
 		>;
 	};
 
-	pinctrl_uart3: uart3grp {
-		fsl,pins = <
-			MX8MP_IOMUXC_SD1_DATA7__UART3_DCE_RX	0x140
-			MX8MP_IOMUXC_SD1_DATA6__UART3_DCE_TX	0x140
-		>;
-	};
+	//pinctrl_uart3: uart3grp {
+	//	fsl,pins = <
+	//		MX8MP_IOMUXC_SD1_DATA7__UART3_DCE_RX	0x140
+	//		MX8MP_IOMUXC_SD1_DATA6__UART3_DCE_TX	0x140
+	//	>;
+	//};
 
 	pinctrl_pwm1: pwm1grp {
 		fsl,pins = <
