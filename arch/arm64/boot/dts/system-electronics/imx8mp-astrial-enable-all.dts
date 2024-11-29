@@ -8,12 +8,18 @@
 
 #include "imx8mp-astrial-base.dtsi"
 
-&iomuxc {
-	pinctrl-0 = <
-		&pinctrl_hog
-		&pinctrl_gpio_flexcan2
-		&pinctrl_gpio_spi2
-		&pinctrl_gpio_uart3
-		&pinctrl_gpio_sdhc1
-	>;
+&flexcan2 {
+    status = "okay";
+};
+
+&usdhc1 {
+    status = "okay";
+};
+
+&ecspi2 {
+    status = "okay";
+};
+
+&uart3 {
+    status = "okay";
 };
