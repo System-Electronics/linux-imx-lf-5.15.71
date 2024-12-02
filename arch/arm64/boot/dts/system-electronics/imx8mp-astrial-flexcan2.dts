@@ -11,9 +11,12 @@
 &iomuxc {
 	pinctrl-0 = <
 		&pinctrl_hog
-		&pinctrl_gpio_flexcan2
 		&pinctrl_gpio_spi2
 		&pinctrl_gpio_uart3
 		&pinctrl_gpio_sdhc1
 	>;
+};
+
+&flexcan2 {
+    status = "okay";
 };
