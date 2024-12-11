@@ -341,8 +341,8 @@
 		/* Camera_GPIO points to GPIO1_5... for both cameras? */
 		/* reset-gpios => for standard imx219 driver */
 		/* rst-gpios => for nxp imx219 driver */
-		reset-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
-		rst-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
+		/* reset-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; */
+		/* rst-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; */
 		mclk = <24000000>;
 		mclk_source = <0>;
 		mipi_csi;
@@ -395,8 +395,8 @@
 		/* Camera_GPIO points to GPIO1_5... for both cameras? */
 		/* reset-gpios => for standard imx219 driver */
 		/* rst-gpios => for nxp imx219 driver */
-		reset-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
-		rst-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
+		/* reset-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; */
+		/* rst-gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; */
 		mclk = <24000000>;
 		mclk_source = <0>;
 		mipi_csi;
