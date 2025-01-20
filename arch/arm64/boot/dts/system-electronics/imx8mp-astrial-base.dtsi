@@ -1061,6 +1061,20 @@
 	};
 };
 
+&mipi_dsi {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	panel@0 {
+		compatible = "raspberrypi,7inch-panel";
+	//	compatible = "waveshare,10.1inch-panel";
+		reg = <0>;
+		i2c-bus = <&i2c2>;
+		status = "okay";
+	};
+};
+
 &cameradev {
 	status = "okay";
 };
