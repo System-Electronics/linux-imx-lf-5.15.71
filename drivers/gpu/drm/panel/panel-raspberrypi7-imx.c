@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- * Copyright © 2025 TODO
+ * Copyright © 2025 System Electronics BU System Ceramics S.p.a.
  *
  * Based on panel-raspberrypi-touchscreen.c by Broadcom
  *
@@ -475,6 +475,6 @@ static struct mipi_dsi_driver rpi_panel_imx_driver = {
 };
 module_mipi_dsi_driver(rpi_panel_imx_driver);
 
-MODULE_AUTHOR("TODO <todo@todo.it>");
+MODULE_AUTHOR("Manuel Rota <manuel.rota@kalpa.it>");
 MODULE_DESCRIPTION("Raspberry Pi 7-inch touchscreen driver (IMX compatible)");
 MODULE_LICENSE("GPL v2");
