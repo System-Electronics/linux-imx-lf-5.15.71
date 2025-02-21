@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright 2019 NXP
+ * Copyright 2024 Koan Software
+ */
+
+/dts-v1/;
+
+#include "imx8mp-astrial-base.dtsi"
+
+&iomuxc {
+	pinctrl-0 = <
+		&pinctrl_hog
+		&pinctrl_gpio_flexcan2
+		&pinctrl_gpio_spi2
+		&pinctrl_gpio_uart3
+		&pinctrl_gpio_sdhc1
+	>;
+};
+
+&mipi_dsi {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	panel@0 {
+		compatible = "waveshare,10.1inch-panel";
+		reg = <0>;
+		i2c-bus = <&i2c2>;
+		status = "okay";
+	};
+};
