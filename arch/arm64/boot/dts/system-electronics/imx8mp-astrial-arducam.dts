@@ -5,6 +5,7 @@
  */
 
 /dts-v1/;
+
 #include "imx8mp-astrial-base.dtsi"
 
 /delete-node/ &imx219_0;
@@ -13,8 +14,6 @@
 &iomuxc {
     pinctrl-0 = <
         &pinctrl_hog
-        &pinctrl_sai3
-        &pinctrl_gpio_uart3
         &pinctrl_gpio_sdhc1
     >;
 };
