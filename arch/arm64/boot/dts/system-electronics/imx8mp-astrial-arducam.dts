@@ -21,47 +21,7 @@
 	>;
 };
 
-&i2c2 {
-	clock-frequency = <100000>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i2c2>;
-	status = "okay";
-
-    arducam_pivariety_1: arducam_pivariety_mipi@c {
-        compatible = "arducam,arducam-pivariety";
-        reg = <0x0c>;
-        pinctrl-0 = <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
-        clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
-        clock-names = "xclk";
-        assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
-        assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
-        assigned-clock-rates = <24000000>;
-        csi_id = <1>;
-        // powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_HIGH>;
-        // reset-gpios = <&gpio4 0 GPIO_ACTIVE_LOW>;
-        mclk = <24000000>;
-        mclk_source = <0>;
-        mipi_csi;
-        status = "okay";
-
-        port {
-            arducam_pivariety_mipi_1_ep: endpoint {
-                remote-endpoint = <&mipi_csi1_ep>;
-                data-lanes = <1 2>;
-                clock-lanes = <0>;
-				clock-noncontinuous;
-				link-frequencies = /bits/ 64 <456000000>;
-            };
-        };
-    };
-};
-
 &i2c6 {
-	clock-frequency = <100000>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i2c6>;
-	status = "okay";
-    
     arducam_pivariety_0: arducam_pivariety_mipi@c {
         compatible = "arducam,arducam-pivariety";
         reg = <0x0c>;
@@ -84,18 +44,41 @@
                 remote-endpoint = <&mipi_csi0_ep>;
                 data-lanes = <1 2>;
                 clock-lanes = <0>;
-                clock-noncontinuous;
-				link-frequencies = /bits/ 64 <456000000>;
+			};
+		};
+	};
+
+};
+
+&i2c2 {
+	arducam_pivariety_1: arducam_pivariety_mipi@c {
+		compatible = "arducam,arducam-pivariety";
+		reg = <0x0c>;
+		pinctrl-0 = <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
+		clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
+		clock-names = "xclk";
+		assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
+		assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
+		assigned-clock-rates = <24000000>;
+		csi_id = <1>;
+		// powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_HIGH>;
+		// reset-gpios = <&gpio4 0 GPIO_ACTIVE_LOW>;
+		mclk = <24000000>;
+		mclk_source = <0>;
+		mipi_csi;
+		status = "okay";
+
+		port {
+			arducam_pivariety_mipi_1_ep: endpoint {
+				remote-endpoint = <&mipi_csi1_ep>;
+				data-lanes = <1 2>;
+				clock-lanes = <0>;
             };
         };
     };
 };
 
 &mipi_csi_0 {
-	#address-cells = <1>;
-	#size-cells = <0>;
-	status = "okay";
-
     port@0 {
         reg = <0>;
         mipi_csi0_ep: endpoint {
@@ -109,10 +92,6 @@
 };
 
 &mipi_csi_1 {
-	#address-cells = <1>;
-	#size-cells = <0>;
-	status = "okay";
-
     port@1 {
         reg = <1>;
         mipi_csi1_ep: endpoint {
@@ -136,6 +115,8 @@
 &dewarp {
     status = "disabled";
 };
+
+
 
 &isi_0 {
     status = "okay";
