@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright 2019 NXP
+ * Copyright 2024 System Electronics
+ */
+
+/dts-v1/;
+
+#include "imx8mp-astrial-flexcan2.dts"
+
+&flexcan1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan1>;
+	status = "okay";
+};
+
+&iomuxc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog>;
+
+	pinctrl_hog: hoggrp {
+		fsl,pins = <
+			/* UART1 CTS/RTS as GPIO */
+			MX8MP_IOMUXC_SAI2_TXFS__GPIO4_IO24			0x106
+			MX8MP_IOMUXC_SAI2_RXD0__GPIO4_IO23			0x106
+		>;
+	};
+
+	/* FCAN2 as GPIO */
+	pinctrl_flexcan1: flexcan1grp {
+		fsl,pins = <
+			MX8MP_IOMUXC_HDMI_DDC_SCL__CAN1_TX          0x152
+            MX8MP_IOMUXC_HDMI_DDC_SDA__CAN1_RX          0x152
+		>;
+	};
+};
+
