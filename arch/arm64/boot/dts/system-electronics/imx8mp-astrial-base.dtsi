@@ -25,6 +25,19 @@
 		      <0x1 0x40000000 1 0x00000000>;
 	};
 
+	resmem: reserved-memory {
+	#address-cells = <2>;
+	#size-cells = <2>;
+	ranges;
+
+	linux,cma {
+		compatible = "shared-dma-pool";
+		reusable;
+		size = <0 0x20000000>;
+		alloc-ranges = <0 0x40000000 0 0xC0000000>;
+		linux,cma-default;
+	};
+
 	reg_pcie0: regulator-pcie {
 		compatible = "regulator-fixed";
 		pinctrl-names = "default";
@@ -61,16 +74,6 @@
 				<96000>,
 				<192000>;
 		status = "okay";
-	};
-};
-
-&resmem {
-	linux,cma {
-		compatible = "shared-dma-pool";
-		reusable;
-		size = <0 0x20000000>;
-		alloc-ranges = <0 0x40000000 0 0xC0000000>;
-		linux,cma-default;
 	};
 };
 
