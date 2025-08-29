@@ -9,3 +9,4 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-astrial-spi2.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8mp-astrial-uart3.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8mp-astrial-dsi-rpi.dtb
 dtb-$(CONFIG_ARCH_MXC) += imx8mp-astrial-dsi-waveshare.dtb
+dtb-$(CONFIG_ARCH_MXC) += imx8mp-astrial-flexcan1-flexcan2.dtb
